@@ -3,13 +3,13 @@
     flex-wrap: wrap;
     width: 80vmin;
     height: 80vmin;
-    border: 0.5rem solid black
+    border: 0.3rem solid black
 }
 
 .grid-square {
     width: 5vmin;
     height: 5vmin;
-    border: 0.3rem solid black;
+    border: 0.01rem solid black;
     box-sizing: border-box
 }
 

@@ -1,15 +1,28 @@
 const container = document.querySelector('#grid-container');
-for (let i=0; i < 256; i++){
-  const square = document.createElement('div');
-  square.classList.add('grid-square');
-  square.style.width = 'calc(100% / 16)';
-  square.style.height = 'calc(100% / 16)';
-  container.appendChild(square)
+
+function createGrid(size) {
+  container.innerHTML = '';
+    for (let i=0; i < (size * size); i++){
+        const square = document.createElement('div');
+        square.classList.add('grid-square');
+        square.style.width = `calc(100% / ${size})`;
+        square.style.height = `calc(100% / ${size})`;
+        square.addEventListener('mouseover', () => {
+            square.style.backgroundColor = 'red';
+})
+    container.appendChild(square)
+
+}
 }
 
-const square = document.querySelectorAll('.grid-square');
-square.forEach(square => {
-    square.addEventListener('mouseover', () => {
-        square.style.backgroundColor = 'red';
-    })
-})
+    function changeSize() {
+        let newSize = prompt('Enter number of squares per side (max 100)');
+        newSize = parseInt(newSize);
+        if (newSize > 0 && newSize <= 100) {
+            createGrid(newSize);
+        } else {
+            alert('Please enter a number between 1 and 100');
+    }
+}
+
+createGrid(16);
