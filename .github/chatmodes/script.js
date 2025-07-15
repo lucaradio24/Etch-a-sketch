@@ -85,5 +85,5 @@ createGrid(16);
 
 
 
-// Toggle to change color
+
 // Remove grid lines
