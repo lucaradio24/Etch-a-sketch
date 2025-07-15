@@ -4,6 +4,13 @@ let isMouseDown = false;
 let isRainbowMode = false;
 let isHoverEnabled = false;
 
+let defaultColor = '#000000';
+
+const colorPicker = document.querySelector('#colorPicker');
+colorPicker.addEventListener('change', (e) => {
+    defaultColor = e.target.value;
+})
+
 container.addEventListener('click', () => {
     isHoverEnabled = !isHoverEnabled;
 })
@@ -17,6 +24,15 @@ const rgb = function() {
 
 function toggleRGBMode() {
     isRainbowMode = !isRainbowMode;
+}
+
+function hexToRgb(hex){
+    hex = hex.replace('#', '');
+    const r = parseInt(hex.substring(0,2), 16);
+    const g = parseInt(hex.substring(2,4), 16);
+    const b = parseInt(hex.substring(4,6), 16);
+
+    return `${r}, ${g}, ${b}`;
 }
 
 function createGrid(size) {
@@ -37,7 +53,7 @@ function createGrid(size) {
                 if (isRainbowMode) {
                     square.style.backgroundColor = rgb();
                 } else {
-                    square.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
+                    square.style.backgroundColor = `rgba(${hexToRgb(defaultColor)}, ${opacity})`;
                 }
             }
         });
@@ -68,7 +84,6 @@ function toggleMode(){
 createGrid(16);
 
 
-// Randomize RGB values
-// Implement progressive darkening 
+
 // Toggle to change color
 // Remove grid lines
