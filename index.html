@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Etch a Sketch</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Etch-a-Sketch Main Device -->
+      <div class="etch-device">
+        <div class="device-top">
+          <!-- Slider sopra la griglia -->
+          <div class="size-control-top">
+            <div class="slider-icon">⚙️</div>
+            <span class="slider-title">Customise Grid</span>
+            <div class="slider-container">
+              <input
+                type="range"
+                id="sizeSlider"
+                min="1"
+                max="7"
+                value="1"
+                step="1"
+              />
+              <span id="sizeLabel">10x5</span>
+            </div>
+          </div>
+
+          <div class="grid-section">
+            <div class="grid-frame">
+              <div id="grid-container"></div>
+            </div>
+          </div>
+
+          <!-- Left Knob - Save Image -->
+          <div class="knob left-knob" id="save-knob">
+            <div class="knob-inner">
+              <div class="knob-icon">💾</div>
+            </div>
+          </div>
+
+          <!-- Right Knob - Eraser -->
+          <div class="knob right-knob" id="eraser-knob">
+            <div class="knob-inner">
+              <div class="knob-icon">🧽</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Control Buttons -->
+        <div class="control-buttons">
+          <div class="button-group">
+            <button class="control-btn color-picker-btn">
+              <input type="color" id="colorPicker" value="#000000" />
+              <div class="btn-icon">🎨</div>
+              <span>Color<br />Picker</span>
+            </button>
+
+            <button class="control-btn rainbow-btn" id="rainbow-btn">
+              <div class="btn-icon">🌈</div>
+              <span>Rainbow<br />Mode</span>
+            </button>
+
+            <button class="control-btn toggle-btn" id="toggle-btn">
+              <div class="btn-icon">✏️</div>
+              <span>Hold /<br />Hover</span>
+            </button>
+
+            <button class="control-btn clear-btn" id="clear-btn">
+              <div class="btn-icon">🗑️</div>
+              <span>Clear</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

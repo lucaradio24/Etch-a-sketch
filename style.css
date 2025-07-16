@@ -1,0 +1,558 @@
+/* Reset e base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background: linear-gradient(135deg, #f5f1e8 0%, #e8ddd4 100%);
+  height: 100vh; /* Cambia da min-height a height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1vh; /* Usa viewport height */
+  overflow: hidden; /* Previene lo scroll */
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw; /* Usa viewport width */
+  height: 100vh; /* Usa viewport height */
+  max-width: none; /* Rimuovi max-width fisso */
+}
+
+/* Main Device */
+.etch-device {
+  background: linear-gradient(145deg, #e8ddd4, #f5f1e8);
+  border-radius: 3vw; /* Usa viewport width per scaling */
+  padding: 2vh 3vw; /* Usa viewport units */
+  box-shadow: 1.5vw 1.5vw 4vw #d4c9c0, -1.5vw -1.5vw 4vw #ffffff;
+  position: relative;
+  width: 90vw; /* Limita la larghezza */
+  max-width: 900px; /* Mantieni un massimo ragionevole */
+  height: 90vh; /* Limita l'altezza */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.device-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1vh; /* Usa viewport height */
+  position: relative;
+  width: 100%;
+  flex: 1; /* Occupa lo spazio disponibile */
+}
+
+/* Slider posizionato sopra la griglia */
+.size-control-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 75vw; /* Aumentato da 60vw a 75vw */
+  margin-bottom: 1vh;
+  background: linear-gradient(145deg, #f4e4c1, #e8d7ae);
+  border-radius: 2vw;
+  padding: 1.5vh 3vw; /* Aumentato il padding */
+  box-shadow: 0.8vw 0.8vw 1.6vw #d4c9c0, -0.8vw -0.8vw 1.6vw #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.size-control-top:hover {
+  transform: translateY(-0.2vh);
+  box-shadow: 1vw 1vw 2vw #d4c9c0, -1vw -1vw 2vw #ffffff;
+}
+
+.slider-icon {
+  font-size: 3.2vh; /* Aumentato da 2.5vh a 3.2vh */
+  margin-bottom: 0.5vh;
+  display: block;
+}
+
+.slider-title {
+  font-size: 2.2vh; /* Aumentato da 1.6vh a 2.2vh */
+  font-weight: 600;
+  color: #8b7355;
+  margin-bottom: 0.5vh;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 2vw; /* Aumentato da 1vw a 2vw */
+  width: 100%;
+}
+
+.size-control-top #sizeSlider {
+  flex: 1;
+  height: 1.2vh; /* Aumentato da 0.8vh a 1.2vh */
+  -webkit-appearance: none;
+  background: linear-gradient(145deg, #e8ddd4, #f5f1e8);
+  border-radius: 2vw;
+  outline: none;
+  box-shadow: inset 0.4vw 0.4vw 0.8vw #d4c9c0, inset -0.4vw -0.4vw 0.8vw #ffffff;
+}
+
+.size-control-top #sizeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2.5vh; /* Aumentato da 2vh a 2.5vh */
+  height: 2.5vh;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #f5f1e8, #e8ddd4);
+  box-shadow: 0.4vw 0.4vw 0.8vw #d4c9c0, -0.4vw -0.4vw 0.8vw #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.size-control-top #sizeLabel {
+  min-width: 10vw;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  color: #8b7355;
+  font-size: 2.2vh; /* Aumentato da 1.8vh a 2.2vh */
+}
+
+/* Grid Section */
+.grid-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-height: 70vh; /* Aumentato da 60vh a 70vh */
+}
+
+.grid-frame {
+  background: linear-gradient(145deg, #d4c9c0, #f0e5dc);
+  border-radius: 2vw;
+  padding: 2vw; /* Aumentato da 1.5vw a 2vw */
+  box-shadow: inset 0.8vw 0.8vw 1.6vw #c4b9b0, inset -0.8vw -0.8vw 1.6vw #ffffff;
+  width: 100%;
+  max-width: 75vw; /* Aumentato da 60vw a 75vw */
+  height: auto;
+}
+
+#grid-container {
+  background: #f8f4f0;
+  border-radius: 1vw;
+  width: 100%;
+  height: 45vh; /* Aumentato da 35vh a 45vh */
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  box-shadow: inset 0.4vw 0.4vw 0.8vw #e8ddd4, inset -0.4vw -0.4vw 0.8vw #ffffff;
+  align-content: flex-start;
+  border: 0.2vw solid #d4c9c0;
+  justify-content: flex-start;
+}
+
+.grid-square {
+  border: 0.08vw solid #d4c9c0; /* Aumentato da 0.05vw a 0.08vw per bordi più visibili */
+  box-sizing: border-box;
+  transition: background-color 0.1s ease;
+  background-color: #ffffff;
+  opacity: 0.8;
+  min-width: 0.8vw; /* Aumentato da 0.5vw a 0.8vw */
+  min-height: 0.8vh; /* Aumentato da 0.5vh a 0.8vh */
+}
+
+/* Knobs - responsive sizing */
+.knob {
+  width: 10vw; /* Aumentato da 8vw a 10vw */
+  height: 10vw; /* Aumentato da 8vw a 10vw */
+  max-width: 100px; /* Aumentato da 80px a 100px */
+  max-height: 100px; /* Aumentato da 80px a 100px */
+  border-radius: 50%;
+  background: linear-gradient(145deg, #e8ddd4, #f5f1e8);
+  box-shadow: 1.8vw 1.8vw 3.6vw #d4c9c0, -1.8vw -1.8vw 3.6vw #ffffff; /* Aumentato ombre */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.knob:hover {
+  box-shadow: 1.2vw 1.2vw 2.4vw #d4c9c0, -1.2vw -1.2vw 2.4vw #ffffff; /* Aumentato ombre hover */
+}
+
+.knob-inner {
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #d4c9c0, #f0e5dc);
+  box-shadow: inset 0.7vw 0.7vw 1.4vw #c4b9b0, inset -0.7vw -0.7vw 1.4vw #ffffff; /* Aumentato ombre inner */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4vh; /* Aumentato da 3.2vh a 4vh */
+}
+
+.left-knob {
+  position: absolute;
+  left: -5vw; /* Aumentato da -4vw a -5vw */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.right-knob {
+  position: absolute;
+  right: -5vw; /* Aumentato da -4vw a -5vw */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Control Buttons - responsive */
+.control-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 2vh;
+  flex-shrink: 0; /* Non si restringono */
+}
+
+.button-group {
+  display: flex;
+  gap: 1.5vw;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.control-btn {
+  background: linear-gradient(145deg, #e8ddd4, #f5f1e8);
+  border: none;
+  border-radius: 2vw;
+  padding: 1.5vh 1vw;
+  width: 15vw; /* Aumentato da 12vw a 15vw */
+  height: 15vh; /* Aumentato da 12vh a 15vh */
+  max-width: 120px; /* Aumentato da 100px a 120px */
+  max-height: 120px; /* Aumentato da 100px a 120px */
+  min-width: 95px; /* Aumentato da 80px a 95px */
+  min-height: 95px; /* Aumentato da 80px a 95px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 1vw 1vw 2vw #d4c9c0, -1vw -1vw 2vw #ffffff; /* Aumentato ombre */
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 1.6vh; /* Aumentato da 1.2vh a 1.6vh */
+  text-align: center;
+  line-height: 1.2;
+  position: relative;
+}
+
+.control-btn:hover {
+  box-shadow: 6px 6px 12px #d4c9c0, -6px -6px 12px #ffffff; /* Aumentato ombre hover */
+  transform: translateY(2px);
+}
+
+.control-btn:active {
+  box-shadow: inset 6px 6px 12px #d4c9c0, inset -6px -6px 12px #ffffff; /* Aumentato ombre active */
+}
+
+.btn-icon {
+  font-size: 4.5vh; /* Aumentato da 3.8vh a 4.5vh */
+  margin-bottom: 0.5vh;
+}
+
+.control-btn span {
+  color: #8b7355;
+  font-weight: 600;
+  font-size: 1.6vh; /* Aumentato da 1.2vh a 1.6vh */
+}
+
+/* Specific button colors */
+.color-picker-btn {
+  background: linear-gradient(145deg, #b3d4d1, #8ecae6);
+}
+
+.rainbow-btn {
+  background: linear-gradient(145deg, #f4d1ae, #ffb3ba);
+}
+
+.toggle-btn {
+  background: linear-gradient(145deg, #e8c4a0, #f4d1ae);
+}
+
+.clear-btn {
+  background: linear-gradient(145deg, #ffb3ba, #ffd1dc);
+}
+
+.size-btn {
+  background: linear-gradient(145deg, #f0e5dc, #e8ddd4);
+}
+
+/* Color picker styling */
+#colorPicker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  border: none;
+}
+
+/* Size control */
+.size-control {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+#sizeSlider {
+  width: 80px;
+  height: 4px;
+  background: #d4c9c0;
+  border-radius: 2px;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+#sizeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #8b7355;
+  cursor: pointer;
+}
+
+#sizeSlider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #8b7355;
+  cursor: pointer;
+  border: none;
+}
+
+#sizeLabel {
+  font-size: 13px; /* Aumentato da 10px a 13px */
+  color: #8b7355;
+  font-weight: 600;
+}
+
+/* Active states */
+.control-btn.button-active {
+  box-shadow: inset 6px 6px 12px #c4b9b0, inset -6px -6px 12px #ffffff;
+  transform: translateY(3px);
+}
+
+.rainbow-btn.button-active {
+  background: linear-gradient(145deg, #ffb3ba, #f4d1ae);
+}
+
+.toggle-btn.button-active {
+  background: linear-gradient(145deg, #f4d1ae, #e8c4a0);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .etch-device {
+    padding: 20px;
+  }
+
+  .device-top {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .left-knob,
+  .right-knob {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    transform: none;
+  }
+
+  .grid-frame {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  #grid-container {
+    width: 100%;
+    height: 250px;
+  }
+
+  .button-group {
+    gap: 15px;
+  }
+
+  .control-btn {
+    width: 120px; /* Aumentato da 100px a 120px */
+    height: 120px; /* Aumentato da 100px a 120px */
+    padding: 18px; /* Aumentato da 15px a 18px */
+    font-size: 2vh; /* Aumentato da 1.8vh a 2vh */
+  }
+
+  .btn-icon {
+    font-size: 42px; /* Aumentato da 35px a 42px */
+  }
+  
+  .control-btn span {
+    font-size: 2vh; /* Aumentato da 1.8vh a 2vh */
+  }
+  
+  .knob-inner {
+    font-size: 4.2vh; /* Aumentato da 3.5vh a 4.2vh */
+  }
+  
+  .slider-icon {
+    font-size: 3.6vh; /* Aumentato da 2.8vh a 3.6vh */
+  }
+  
+  .slider-title {
+    font-size: 2.4vh; /* Aumentato da 1.8vh a 2.4vh */
+  }
+  
+  .size-control-top #sizeLabel {
+    font-size: 2.4vh; /* Aumentato da 2vh a 2.4vh */
+  }
+}
+
+/* Media queries per schermi molto piccoli */
+@media (max-height: 600px) {
+  .etch-device {
+    padding: 1vh 2vw;
+  }
+  
+  .device-top {
+    gap: 0.5vh;
+  }
+  
+  #grid-container {
+    height: 35vh;
+  }
+  
+  .size-control-top {
+    max-width: 80vw;
+  }
+  
+  .control-btn {
+    width: 18vw; /* Aumentato da 15vw a 18vw */
+    height: 12vh; /* Aumentato da 8vh a 12vh */
+    min-width: 75px; /* Aumentato da 60px a 75px */
+    min-height: 75px; /* Aumentato da 60px a 75px */
+    font-size: 1.6vh; /* Aumentato da 1.4vh a 1.6vh */
+  }
+  
+  .btn-icon {
+    font-size: 3.2vh; /* Aumentato da 2.8vh a 3.2vh */
+  }
+  
+  .control-btn span {
+    font-size: 1.6vh; /* Aumentato da 1.4vh a 1.6vh */
+  }
+  
+  .knob {
+    width: 8vw; /* Aumentato da 6vw a 8vw */
+    height: 8vw; /* Aumentato da 6vw a 8vw */
+  }
+  
+  .knob-inner {
+    font-size: 3.2vh; /* Aumentato da 2.8vh a 3.2vh */
+  }
+  
+  .slider-icon {
+    font-size: 2.8vh; /* Aumentato da 2.2vh a 2.8vh */
+  }
+  
+  .slider-title {
+    font-size: 1.8vh; /* Aumentato da 1.4vh a 1.8vh */
+  }
+  
+  .size-control-top #sizeLabel {
+    font-size: 2vh; /* Aumentato da 1.6vh a 2vh */
+  }
+}
+
+@media (max-width: 480px) {
+  .etch-device {
+    width: 95vw;
+    height: 95vh;
+  }
+  
+  .grid-frame {
+    max-width: 90vw;
+  }
+  
+  #grid-container {
+    height: 40vh;
+  }
+  
+  .size-control-top {
+    max-width: 85vw;
+  }
+  
+  .left-knob,
+  .right-knob {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    transform: none;
+    margin: 0 1vw;
+  }
+  
+  .device-top {
+    flex-direction: column;
+  }
+  
+  .control-btn {
+    width: 22vw; /* Aumentato da 18vw a 22vw */
+    height: 14vh; /* Aumentato da 10vh a 14vh */
+    font-size: 2vh; /* Aumentato da 1.8vh a 2vh */
+  }
+  
+  .btn-icon {
+    font-size: 4.8vh; /* Aumentato da 4vh a 4.8vh */
+  }
+  
+  .control-btn span {
+    font-size: 2vh; /* Aumentato da 1.8vh a 2vh */
+  }
+  
+  .knob-inner {
+    font-size: 4.2vh; /* Aumentato da 3.5vh a 4.2vh */
+  }
+  
+  .slider-icon {
+    font-size: 3.6vh; /* Aumentato da 2.8vh a 3.6vh */
+  }
+  
+  .slider-title {
+    font-size: 2.4vh; /* Aumentato da 1.8vh a 2.4vh */
+  }
+  
+  .size-control-top #sizeLabel {
+    font-size: 2.4vh; /* Aumentato da 2vh a 2.4vh */
+  }
+}
